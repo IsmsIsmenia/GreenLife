@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- OpenLayers -->
+<link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
+<script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+</head>
+<body>
+    <div id="map">
+     <!--Crie uma variável que representa a localização do ponto de interesse-->
+     <script>
+     var location = ol.proj.fromLonLat([-122.41669, 37.7853]);
+
+     // Crie uma variável que representa as configurações do mapa
+     var map = new ol.Map({
+       target: 'map',
+       layers: [
+         new ol.layer.Tile({
+           source: new ol.source.OSM()
+         })
+       ],
+       view: new ol.View({
+         center: location,
+         zoom: 15
+       })
+     });
+
+     // Crie uma variável que representa o marcador do ponto de interesse
+     var marker = new ol.Feature({
+       geometry: new ol.geom.Point(location)
+     });
+
+     // Adicione o marcador ao mapa
+     var vectorLayer = new ol.layer.Vector({
+       source: new ol.source.Vector({
+         features: [marker]
+       })
+     });
+     map.addLayer(vectorLayer);
+
+     // Obtenha o elemento HTML do input
+     var input = document.getElementById('location-input');
+
+     // Adicione um evento de clique ao mapa
+     map.on('click', function(evt) {
+       // Obtenha as coordenadas do ponto de interesse
+       var coordinates = evt.coordinate;
+       
+       // Converta as coordenadas para a projeção desejada
+       coordinates = ol.proj.transform(coordinates, 'EPSG:3857', 'EPSG:4326');
+       
+       // Atualize o valor do input HTML
+       input.value = coordinates[1] + ', ' + coordinates[0];
+       
+       // Crie um marcador para o novo ponto de interesse
+       var newMarker = new ol.Feature({
+         geometry: new ol.geom.Point(evt.coordinate)
+       });
+       
+       // Adicione o novo marcador ao mapa
+       vectorLayer.getSource().addFeature(newMarker);
+     });
+    </script>
+    </div>
+</body>
+</html>

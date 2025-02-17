@@ -1,0 +1,8 @@
+<div class="form-group col-md-6">
+                <label>Coordenadas</label>
+                 <div class="input-group">
+                   <input class="form-control"  name="coord" id="coord" placeholder="" value="<?php if(isset($_GET['coord'])){ echo $_GET['coord']; }?>" Required>
+                   <div class = "input-group-append">
+                   </div>
+                 </div>
+                  </div>

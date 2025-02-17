@@ -1,0 +1,24 @@
+Escolha a afirmação verdadeira.
+check
+As VPCs são globais, e as sub-redes são regionais.
+
+
+
+
+
+O que é usado para encaminhar tráfego de uma instância para outra dentro da mesma rede, entre sub-redes ou até mesmo entre zonas do Google Cloud sem precisar de um endereço IP externo?
+
+check
+Tabela de roteamento
+
+
+heck
+4.
+
+Qual termo descreve o local em que a Rede do Google fica conectada ao restante da Internet?
+
+check
+Ponto de presença (PoP)
+
+
+
