@@ -1,0 +1,26 @@
+<?php
+require(../../banco.php);
+
+ function parseToXML($htmlStr){
+    $xmlSrt=srt_replace ('<','&lt;',$htmlStr);
+    $xmlSrt=srt_replace ('>','&gt;',$xmlStr);
+    $xmlSrt=srt_replace ('"','&quot;',$xmlStr);
+    $xmlSrt=srt_replace ("'",'&=39;',$xmlStr);
+    $xmlSrt=srt_replace ("&",'&amp;',$xmlStr);
+    return $xmlStr;
+ }
+
+$query = "select coord from tbdenuncia where checado = 'ok'"
+
+$result = mysqli_query($query);
+
+head("Content-type: text/xml")
+
+//Start XML file, echo parent node 
+echo '<mapa>'
+
+while($row = mysqli_fetch_assoc($result)){
+   echo '<mapa';
+   echo 'name="' . parseToXML(4row{'name'});
+}
+?>  
