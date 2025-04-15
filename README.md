@@ -1,4 +1,4 @@
-# GreenLife  
+# GreenLife 🌱
 
 Projeto desenvolvido na disciplina **Laboratório Web**, com o objetivo de mapear focos de lixo na cidade, gerar relatórios sobre os bairros mais afetados e permitir denúncias através do registro de imagens e localização.  
 
