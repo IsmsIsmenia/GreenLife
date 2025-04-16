@@ -6,9 +6,9 @@
 $email = $_POST ['email'];
 $senha = $_POST ['senha'];
 
-
 //criando uma consulta
 $sql = "select * from tbusu where email='$email' and senha='$senha'";
+
 $consulta = $conexao->query($sql);
 if ($consulta->num_rows > 0){
     session_start();
@@ -18,9 +18,11 @@ if ($consulta->num_rows > 0){
     $_SESSION['nomeusu'] = $linha['nome'];
     $_SESSION['emailusu'] = $linha['email'];
     header('Location: denuncia.php?login=ok');
+    exit();
    // echo 'Usuário Encontrado';
 }else{
     header('Location: login.php?login=erro');
+    exit();
    // echo 'Usuário não encontrado';
 
 }

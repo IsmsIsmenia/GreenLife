@@ -93,7 +93,7 @@
                     <p class="text-center small">Digite seu nome de usuário e senha para entrar</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Usuário</label>
