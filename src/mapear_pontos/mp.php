@@ -1,5 +1,5 @@
 <?php
-include('../../banco.php');
+include('../banco.php');
 
 $sql = "SELECT * FROM tbdenuncia WHERE checado = 'ok'";
 
